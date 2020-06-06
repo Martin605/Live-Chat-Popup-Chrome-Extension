@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "name": "Live Chat Room Popup",
+  "description": "Make a popup on a live video",
+  "version": "1.0.0",
+  "author": "Martin",
+  "icons": { 
+    "16": "icon/icon16.png",
+    "48": "icon/icon48.png",
+   "128": "icon/icon128.png" },
+  "browser_action": {
+    "default_icon": "icon/icon.png",
+    "default_popup": "popup.html"
+  },
+  "options_ui":{
+    "page": "setting.html",
+    "open_in_tab": false
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.facebook.com/*",
+        "https://www.youtube.com/watch*",
+        "https://www.twitch.tv/*"
+      ],
+      "js": [
+        "js/execute.js", "js/jquery-3.5.1.min.js"
+      ]
+    }
+  ]
+}

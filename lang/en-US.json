@@ -1,0 +1,16 @@
+{
+    "name":"English",
+    "code":"en-US",
+    "_title":"Chat Room Popup Tool",
+    "_home":"Home",
+    "_D":"You can use this tool to add a Chat Room Popup on Facebook, Twitch or YouTube live video, even in fullscreen mode.",
+    "_addBtn":"Add Chat Room Popup",
+    "_addBtnFBD":"Facebook(without interact function)",
+    "_facebookBtn":"Add Chat Room Popup(Facebook)",
+    "_facebookBtnD":"Facebook New UI(with interact function)",
+    "_setting":"Setting",
+    "_reset":"Reset",
+    "_language":"Language",
+    "_popupOpacity":"Popup Transparency",
+    "_popupLocation":"Popup Location<div class='badge badge-primary text-wrap'>For Facebook New UI (with interact function)</div>"
+}
