@@ -1,6 +1,6 @@
 # Live-Chat-Popup-Chrome-Extension
-Chrome Web Store: https://chrome.google.com/webstore/detail/live-chat-room-popup/ghjbfgalckfjahifekchinpjelfeiokk
-
+<a target="_blank" href="https://chrome.google.com/webstore/detail/live-chat-room-popup/ghjbfgalckfjahifekchinpjelfeiokk">
+<img src="https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_340x96.png"></a>
 ## Features
 浮動聊天室可在Facebook、Twitch或YouTube直播上新增一個浮動聊天室，即使在全螢幕模式下也可使用。
 
