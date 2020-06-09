@@ -1,8 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "Live Chat Room Popup",
-  "description": "Make a popup on a live video",
-  "version": "1.0.0",
+  "name": "__MSG_application_title__",
+  "description": "__MSG_application_description__",
+  "default_locale": "en",
+  "version": "1.0.1",
   "author": "Martin",
   "icons": { 
     "16": "icon/icon16.png",
@@ -16,9 +17,6 @@
     "page": "setting.html",
     "open_in_tab": false
   },
-  "permissions": [
-    "activeTab"
-  ],
   "content_scripts": [
     {
       "matches": [
