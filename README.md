@@ -3,11 +3,14 @@
 <img src="https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_340x96.png"></a>
 
 ## Features
-浮動聊天室可在Facebook、Twitch或YouTube直播上新增一個浮動聊天室，即使在全螢幕模式下也可使用。
-
 Live Chat Popup can let you add a Chat Room Popup on Facebook, Twitch or YouTube live video, even in full screen mode.
 
 ## Screenshots
-![](https://lh3.googleusercontent.com/7cmmEdEZvYWhOtRiHDwjcaBAVcPw2Z4JfVASFXmhk4YbvfRXUaYdm1-EJz_BplkNM2M2dI1p8w=w1280-h800)
-![](https://lh3.googleusercontent.com/K0EQ4hWnwlZuKDobGRLcXsG1rXThjrq2UTE-4ZZeA5ZaHJhretlOKX3b2sZW5HtHTbzNJTZJrw=w1280-h800)
-![](https://lh3.googleusercontent.com/Wl-d5dYDFkVfKEbH1rwcmFpKCUBIVN15AWDdjN3WxzhWEKBTRmF_0TbI0gLNJvve5zsELs-9aA=w1280-h800)
+
+| On YouTube | On YouTube fullscreen |
+| :------------ | :------------ |
+| ![](https://martin605.github.io/Live-Chat-Popup/img/sample1.png) | ![](https://martin605.github.io/Live-Chat-Popup/img/sample2.png) |
+| On Twitch | On Facebook |
+| ![](https://martin605.github.io/Live-Chat-Popup/img/sample3.png) | ![](https://martin605.github.io/Live-Chat-Popup/img/sample4.png) |
+| On Facebook New UI(with interact function) |   |
+| ![](https://martin605.github.io/Live-Chat-Popup/img/sample5.png) |   |
