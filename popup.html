@@ -4,6 +4,7 @@
     <title>Chat Room Popup Tool</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body id="body" style="width: 25rem;">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -12,14 +13,27 @@
    <div class="container">
       <div class="jumbotron mt-3 w-auto">
          <p data-translate="_D">You can use this tool to add a Chat Room Popup on Facebook, Twitch or YouTube live video, even in fullscreen mode.</p>
-         <button class="btn btn-lg btn-primary col-12" id="add" data-translate="_addBtn">Add Chat Room Popup</button> 
+         <button class="btn btn-lg btn-primary col-12" id="add" >
+          <span class="material-icons align-middle" style="font-size: 2rem;">chrome_reader_mode</span>
+          <span class="align-middle" style="font-size: 1.3rem;"data-translate="_addBtn">Add Chat Room Popup</span>
+          </button> 
          <div class='badge badge-secondary text-wrap' style="background-color: #4267B2;" data-translate="_addBtnFBD">Facebook(without interact function)</div>
          <div class='badge badge-secondary text-wrap' style="background-color: #6441A4;">Twitch</div>
          <div class='badge badge-secondary text-wrap' style="background-color: #FF0000;">YouTube</div><br><br>
-         <button class="btn btn-primary col-12" id="fbnew" data-translate="_facebookBtn">Add Chat Room Popup(Facebook)</button>
+         <button class="btn btn-primary col-12" id="fbnew">
+           <span class="material-icons align-middle" style="font-size: 2rem;">chrome_reader_mode</span>
+           <span class="align-middle" style="font-size: 1.3rem;" data-translate="_facebookBtn">Add Chat Room Popup(Facebook)</span></button>
          <div class='badge badge-secondary text-wrap' style="background-color: #4267B2;" data-translate="_facebookBtnD">Facebook New UI(with interact function)</div><br><br>
-         <a class="btn btn-primary col-12" href="setting.html" data-translate="_setting">Setting</a><br><br>
-         <button class="btn btn-primary col-12" id="reset" data-translate="_reset">還原</button>
+        <button class="btn btn-primary col-12" id="reset">
+           <span class="material-icons align-middle">settings_backup_restore</span>
+           <span class="align-middle" data-translate="_reset">Reset</span></button>
+           <div class="row p-3">
+         <a class="btn btn-primary col-5 mr-auto" href="setting.html">
+           <span class="material-icons align-middle">settings</span>
+           <span class="align-middle" data-translate="_setting">Setting</span></a>
+         <a class="btn btn-primary col-5" target="_blank" href="https://martin605.github.io/Live-Chat-Popup/help.html">
+            <span class="material-icons align-middle">contact_support</span>
+            <span class="align-middle" data-translate="_support">Support</span></a></div>
        </div>
     </div>
     <script src="./js/jquery-3.5.1.min.js"></script>
