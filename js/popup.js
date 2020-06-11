@@ -10,6 +10,17 @@ var getSelectedTab = (tab) => {
    document.getElementById('fbnew').addEventListener('click', () => sendMessage({ action: 'FACEBOOKNEW',position: position, transparency: transparency }));
    document.getElementById('reset').addEventListener('click', () => sendMessage({ action: 'RESET' }))
    console.log(position,transparency)
+   $('#alert').hide();
+   $.getJSON('https://martin605.github.io/Live-Chat-Popup/news.json', function(data) {
+    let news_id = localStorage.getItem('news') || "";
+    if ( news_id !== data[Object.keys(data)[0]]['id'] || localStorage.getItem('closenews') == "no" ) {
+      let news = data[Object.keys(data)[0]]
+      $('#alert-body').html(news[localStorage.getItem('lang')]);
+      $('#alert').show();
+      localStorage.setItem('news',news['id'])
+      localStorage.setItem('closenews','no')
+      document.getElementById('close-alert').addEventListener('click', () => localStorage.setItem('closenews','yes'))
+    }});
    onLoad();
  }
 

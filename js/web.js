@@ -18,5 +18,11 @@ function setLang(langCode) {
                 return data[key];
             }
         });
+        $("[data-titletranslate]").attr("data-original-title",function () {
+            var key = $(this).data("titletranslate");
+            if (data.hasOwnProperty(key)) {
+                return data[key];
+            }
+        });
     });
 }
