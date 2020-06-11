@@ -16,9 +16,10 @@ var getSelectedTab = (tab) => {
     if ( news_id !== data[Object.keys(data)[0]]['id'] || localStorage.getItem('closenews') == "no" ) {
       let news = data[Object.keys(data)[0]]
       $('#alert-body').html(news[localStorage.getItem('lang')]);
+      $('#alert').addClass(`alert-${news["type"]}`);
       $('#alert').show();
-      localStorage.setItem('news',news['id'])
-      localStorage.setItem('closenews','no')
+      localStorage.setItem('news',news['id']);
+      localStorage.setItem('closenews','no');
       document.getElementById('close-alert').addEventListener('click', () => localStorage.setItem('closenews','yes'))
     }});
    onLoad();
