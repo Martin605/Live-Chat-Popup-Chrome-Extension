@@ -54,6 +54,7 @@ function dragElement(elmnt) {
     document.onmousemove = elementDrag;
   }
   function elementDrag(e) {
+    try {document.getElementById('popupChatIF').style.pointerEvents = "none";} catch{}
     e = e || window.event;
     e.preventDefault();
     pos1 = pos3 - e.clientX;
@@ -66,6 +67,7 @@ function dragElement(elmnt) {
   function closeDragElement() {
     document.onmouseup = null;
     document.onmousemove = null;
+    try {document.getElementById('popupChatIF').style.pointerEvents = "auto";} catch{}
   }
 }
 function resetFacebookA(query) {
@@ -181,12 +183,12 @@ function iF(id, url) {
 }
 const ytLiveEvent = () => {
   createDIV(document.querySelector('#movie_player'));
-  iF("ytpopupChat", "https://www.youtube.com/live_chat?is_popout=1&v=" + loadPageVar("v"));
+  iF("popupChatIF", "https://www.youtube.com/live_chat?is_popout=1&v=" + loadPageVar("v"));
   resetA(window.location.href);
  };
 const twLiveEvent = () => {
   createDIV(document.querySelector('*[data-test-selector="video-player__video-container"]'));
-  iF("twpopupChat", "https://www.twitch.tv/popout" + window.location.pathname + "/chat?popout=");
+  iF("popupChatIF", "https://www.twitch.tv/popout" + window.location.pathname + "/chat?popout=");
 }
 const reset = () => {
    location.reload();
