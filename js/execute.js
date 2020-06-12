@@ -1,6 +1,7 @@
 var update = true;
 var transparency = "0.8"; 
 var position = "0";
+var settingData = {};
 function createDIV(elmnt) {
    var iDiv = document.createElement('div');
    iDiv.id = "popupChat";
@@ -85,32 +86,32 @@ function get_last(query) {
   return videos[videos.length-1]
 }
 const facebookNewVideoEvent = () => {
-  function hide(query) {
-    document.querySelectorAll(query).forEach(function(Item) {Item.style.display = "none";})
- }
- function toFullscreen(query) {
-    document.querySelectorAll(query).forEach(function(Item) {
-       Item.style.height = "100vh";
-       Item.style.width = "100vw";})
- }
- function bgnone(query) {
-    document.querySelectorAll(query).forEach(function(Item) {Item.style.backgroundColor = "rgba(0, 0, 0, 0)";})
- }
- function removeTop(query) {
-    document.querySelectorAll(query).forEach(function(Item) {Item.style.top = "0";})
- }
-   hide('.b7li7apb.n7fi1qx3.byvelhso.hzruof5a.pmk7jnqg.j9ispegn.kr520xx4');
-   hide('*[role="banner"]');   hide('.j83agx80.rgmg9uty.pmk7jnqg.rnx8an3s.fcg2cn6m');
-   removeTop('.j83agx80.cbu4d94t.jgljxmt5.l9j0dhe7.be9z9djy')
-   toFullscreen('.j83agx80.cbu4d94t.jgljxmt5.l9j0dhe7.be9z9djy');
-   toFullscreen('*[role="main"]');   toFullscreen('video');
-   toFullscreen('*[data-pagelet="TahoeVideo"]');
-   toFullscreen('.j83agx80.cbu4d94t.d2edcug0');
-   bgnone('.pphwfc2g');   hide('.discj3wi.dati1w0a.qt6c0cv9.hv4rvrfc.pfnyh3mw.cbu4d94t.j83agx80');
-   hide('.s1tcr66n');
-   bgnone('.cwj9ozl2.j83agx80.cbu4d94t.buofh1pr.ni8dbmo4.stjgntxs');
-   bgnone('.j9ispegn.pmk7jnqg.cbu4d94t.n7fi1qx3.j83agx80.i09qtzwb.cwj9ozl2.datstx6m');
-   bgnone('.pfnyh3mw.km676qkl.discj3wi.hv4rvrfc.ihqw7lf3.dati1w0a.du4w35lb.cwj9ozl2.lzcic4wl.btwxx1t3.j83agx80');
+   function hide(query) {
+      document.querySelectorAll(query).forEach(function(Item) {Item.style.display = "none";})
+   }
+   function toFullscreen(query) {
+      document.querySelectorAll(query).forEach(function(Item) {
+         Item.style.height = "100vh";
+         Item.style.width = "100vw";})
+   }
+   function bgnone(query) {
+      document.querySelectorAll(query).forEach(function(Item) {Item.style.backgroundColor = "rgba(0, 0, 0, 0)";})
+   }
+   function removeTop(query) {
+      document.querySelectorAll(query).forEach(function(Item) {Item.style.top = "0";})
+   }
+   for (let item = 0; item < settingData["Facebook"]["Static"]["hide"].length; item++) {
+    hide(settingData["Facebook"]["Static"]["hide"][item])
+  }
+  for (let item = 0; item < settingData["Facebook"]["Static"]["removeTop"].length; item++) {
+    removeTop(settingData["Facebook"]["Static"]["removeTop"][item])
+  }
+  for (let item = 0; item < settingData["Facebook"]["Static"]["toFullscreen"].length; item++) {
+    toFullscreen(settingData["Facebook"]["Static"]["toFullscreen"][item])
+  }
+  for (let item = 0; item < settingData["Facebook"]["Static"]["bgnone"].length; item++) {
+    bgnone(settingData["Facebook"]["Static"]["bgnone"][item])
+  }
    function positionChange() {
     if (document.querySelector('.j9ispegn.pmk7jnqg.cbu4d94t.n7fi1qx3.j83agx80.i09qtzwb.cwj9ozl2.datstx6m') !== null ) {
       document.querySelectorAll('.j9ispegn.pmk7jnqg.cbu4d94t.n7fi1qx3.j83agx80.i09qtzwb.cwj9ozl2.datstx6m').forEach(function(Item) {
@@ -122,26 +123,24 @@ const facebookNewVideoEvent = () => {
    }
    document.querySelectorAll('.ll8tlv6m.j83agx80.pfnyh3mw.i1fnvgqd.tr9rh885.wkznzc2l.sjgh65i0.dhix69tm').forEach(function(Item) {Item.addEventListener('click', function() {positionChange()})});
    positionChange(); 
-   bgnone('*[role="complementary"]');
    document.querySelectorAll('*[role="complementary"]').forEach(function(Item) {Item.style.flexShrink = "5000";})
-   bgnone('.j83agx80.cbu4d94t.jgljxmt5.l9j0dhe7.be9z9djy');
-   toFullscreen('.j83agx80.cbu4d94t.jgljxmt5.l9j0dhe7.be9z9djy');
-   hide('.oi732d6d.ik7dh3pa.d2edcug0.qv66sw1b.c1et5uql.a8c37x1j.muag1w35.enqfppq2.jq4qci2q.a3bd9o3v.knj5qynh.py34i1dx');
-   hide('.discj3wi.dati1w0a.qt6c0cv9.hv4rvrfc.pfnyh3mw.cbu4d94t.j83agx80');
    document.querySelectorAll('body').forEach(function(Item) {Item.style.overflow='hidden';})
    document.querySelectorAll('.l9j0dhe7.tkr6xdv7.buofh1pr.eg9m0zos').forEach(function(Item) {Item.style.overflowX='hidden';})
    document.querySelectorAll('.bp9cbjyn.i09qtzwb.jeutjz8y.j83agx80.btwxx1t3.pmk7jnqg.dpja2al7.pnx7fd3z.e4zzj2sf.k4urcfbm.tghn160j').forEach(function(Item) {Item.style.width='calc( 100% - 22rem )';})
-   get_last('.hu5pjgll.eb18blue.sp_2byT6Vfk4cs.sx_b73173').onclick = function() {fullscreen()}
+   let FullscreenBtn = settingData["Facebook"]["Static"]["FullscreenBtn"]
+   get_last(FullscreenBtn["btn"]+"."+FullscreenBtn["on"]).onclick = function() {fullscreen()}
    function fullscreen() { 
+     let FullscreenBtn = settingData["Facebook"]["Static"]["FullscreenBtn"]
       document.querySelector('body').requestFullscreen(); 
-      let a = get_last('.hu5pjgll.eb18blue.sp_2byT6Vfk4cs.sx_b73173');
-      a.classList.remove("sx_b73173");a.classList.add("sx_5ce2be");
+      let a = get_last(FullscreenBtn["btn"]+"."+FullscreenBtn["on"]);
+      a.classList.remove(FullscreenBtn["on"]);a.classList.add(FullscreenBtn["off"]);
       a.onclick = function() {exitfullscreen()}
    }
    function exitfullscreen() {
+      let FullscreenBtn = settingData["Facebook"]["Static"]["FullscreenBtn"]
       document.exitFullscreen();
-      let a = get_last('.hu5pjgll.eb18blue.sp_2byT6Vfk4cs.sx_5ce2be');
-      a.classList.remove("sx_5ce2be");a.classList.add("sx_b73173");
+      let a = get_last(FullscreenBtn["btn"]+"."+FullscreenBtn["off"]);
+      a.classList.remove(FullscreenBtn["off"]);a.classList.add(FullscreenBtn["on"]);
       a.onclick = function() {fullscreen()}
    }
    document.querySelectorAll('.cwj9ozl2.j83agx80.cbu4d94t.buofh1pr.ni8dbmo4.stjgntxs').forEach(function(Item) {Item.style.display="contents";} )
@@ -149,26 +148,30 @@ const facebookNewVideoEvent = () => {
    resetFacebookA('*[data-pagelet="TahoeVideo"]');
  };
 const facebookVideoEvent = () => {
-  if ( document.querySelector('._3b-9._j6a') !== null ) {
+  if ( document.querySelector(settingData["Facebook"]["UI"]["chat"]) !== null ) {
     // Facebook Old UI(live)
-  var fbDiv = createDIV(document.querySelector('._ox1').parentElement);
-  updateChatBox('._3b-9._j6a');
-  resetFacebookA('._3b-9._j6a');
- } else if ( document.querySelector('._53j5') !== null ) {
+  let fbui = settingData["Facebook"]["UI"]
+  var fbDiv = createDIV(document.querySelector(fbui["video"]).parentElement);
+  updateChatBox(fbui["chat"]);
+  resetFacebookA(fbui["chat"]);
+ } else if ( document.querySelector(settingData["Facebook"]["UI_gamming"]["video"] ) !== null ) {
     // Facebook Old UI(gaming live)
-  var fbDiv = createDIV(document.querySelector('._53j5'));
-  updateChatBox('.stjgntxs.ni8dbmo4.tgvbjcpo.buofh1pr.j83agx80');
-  resetFacebookA('._53j5');
- } else if ( document.querySelector('.rq0escxv.j83agx80.cbu4d94t.eg9m0zos.fh5enmmv.k4urcfbm') !== null ) {
+  let fbui = settingData["Facebook"]["UI_gamming"]
+  var fbDiv = createDIV(document.querySelector(fbui["video"]));
+  updateChatBox(fbui["chat"]);
+  resetFacebookA(fbui["video"]);
+ } else if ( document.querySelector(settingData["Facebook"]["NewUI_gamming"]["chat"]) !== null ) {
   // Facebook New UI(gaming live)
-  var fbDiv = createDIV(get_last('.bp9cbjyn.i09qtzwb.jeutjz8y.j83agx80.btwxx1t3.pmk7jnqg.dpja2al7.pnx7fd3z.e4zzj2sf.k4urcfbm.tghn160j').parentElement);
-  updateChatBox('.rq0escxv.j83agx80.cbu4d94t.eg9m0zos.fh5enmmv.k4urcfbm');
-  resetFacebookA('.rq0escxv.j83agx80.cbu4d94t.eg9m0zos.fh5enmmv.k4urcfbm');
+  let fbui = settingData["Facebook"]["NewUI_gamming"]
+  var fbDiv = createDIV(get_last(fbui["video"]).parentElement);
+  updateChatBox(fbui["chat"]);
+  resetFacebookA(fbui["chat"]);
  } else {
   // Facebook New UI(live)
-  var fbDiv = createDIV(get_last('.bp9cbjyn.i09qtzwb.jeutjz8y.j83agx80.btwxx1t3.pmk7jnqg.dpja2al7.pnx7fd3z.e4zzj2sf.k4urcfbm.tghn160j').parentElement);
-  updateChatBox('.eg9m0zos.datstx6m');
-  resetFacebookA('.eg9m0zos.datstx6m');
+  let fbui = settingData["Facebook"]["NewUI"]
+  var fbDiv = createDIV(get_last(fbui["video"]).parentElement);
+  updateChatBox(fbui["chat"]);
+  resetFacebookA(fbui["chat"]);
   }
 }
 function iF(id, url) {
@@ -182,19 +185,20 @@ function iF(id, url) {
   iFDiv.appendChild(iF);
 }
 const ytLiveEvent = () => {
-  createDIV(document.querySelector('#movie_player'));
-  iF("popupChatIF", "https://www.youtube.com/live_chat?is_popout=1&v=" + loadPageVar("v"));
+  createDIV(document.querySelector(settingData["YouTube"]["video"]));
+  iF("popupChatIF", settingData["YouTube"]["chat"].replace("${loadPageVar('v')}",loadPageVar('v')));
   resetA(window.location.href);
  };
 const twLiveEvent = () => {
-  createDIV(document.querySelector('*[data-test-selector="video-player__video-container"]'));
-  iF("popupChatIF", "https://www.twitch.tv/popout" + window.location.pathname + "/chat?popout=");
+  createDIV(document.querySelector(settingData["Twitch"]["video"].split("'").join('"')));
+  iF("popupChatIF", settingData["Twitch"]["chat"].replace("${window.location.pathname}",window.location.pathname));
 }
 const reset = () => {
    location.reload();
  };
 const onMessage = (message) => {
    transparency = message.transparency; 
+   settingData = message.settingData;
    switch (message.action) {
      case 'ADDPOPUP':
        if (window.location.href.match('https://www.facebook.com/.*/videos/.*')) {
