@@ -1,0 +1,10 @@
+{
+    "appName": {
+      "message": "Chat Room Popup Tool",
+      "description": "The title of the application, displayed in the web store."
+    },
+    "appDesc": {
+      "message": "Let you to add a Chat Room Popup on Facebook, Twitch or YouTube live video, even in fullscreen mode.", 
+      "description":"The description of the application, displayed in the web store."
+    }
+  }

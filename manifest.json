@@ -1,9 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "Chat Room Popup Tool",
-  "description": "Let you to add a Chat Room Popup on Facebook, Twitch or YouTube live video, even in fullscreen mode.",
-  "version": "1.2.0",
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDesc__",
+  "version": "1.2.1",
   "author": "Martin",
+  "default_locale":"en",
   "icons": { 
     "16": "icon/icon16.png",
     "48": "icon/icon48.png",
