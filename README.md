@@ -1,6 +1,6 @@
 # Live-Chat-Popup-Chrome-Extension
 <a target="_blank" href="https://chrome.google.com/webstore/detail/live-chat-room-popup/ghjbfgalckfjahifekchinpjelfeiokk">
-<img src="https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_340x96.png"></a>
+<img src="https://martin605.github.io/img/chrome_web_store_branding.png"></a>
 
 ## Features
 Live Chat Popup can let you add a Chat Room Popup on Facebook, Twitch or YouTube live video, even in full screen mode.
