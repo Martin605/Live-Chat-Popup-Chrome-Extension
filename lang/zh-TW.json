@@ -8,10 +8,11 @@
     "_addBtn":"加入浮動聊天室",
     "_noInteract":"没有互動功能",
     "_staticBtn":"加入固定聊天室",
-    "_facebookN":"Facebook新介面",
     "_setting":"設定",
     "_reset":"重置",
     "_language":"語言",
     "_popupOpacity":"聊天室透明度",
-    "_popupLocation":"固定聊天室位置<div class='badge badge-primary text-wrap'>只適用於Facebook新介面(互動功能版)</div>"
+    "_popupLocation":"固定聊天室位置<div class='badge badge-primary text-wrap'>只適用於Facebook(互動功能版)</div>",
+    "_sizew":"聊天室大小(寬)",
+    "_sizeh":"聊天室大小(高)"
 }

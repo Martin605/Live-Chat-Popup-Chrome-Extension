@@ -16,30 +16,24 @@
           <select id="langList" class="custom-select my-1 mr-sm-2" name="langList">
             <option value="en-US">English</option>
             <option value="zh-TW">中文</option>
+            <option value="zh-HK">中文(廣東話)</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="disabledSelect" data-translate="_popupOpacity">Popup Transparency</label>
-          <select class="custom-select my-1 mr-sm-2" name="opacity" id="opacity">
-            <option value="1">10%</option>
-            <option value="2">20%</option>
-            <option value="3">30%</option>
-            <option value="4">40%</option>
-            <option value="5">50%</option>
-            <option value="6">60%</option>
-            <option value="7">70%</option>
-            <option value="8">80%</option>
-            <option value="9">90%</option>
-            <option value="10">100%</option>
-          </select>
+          <label for="disabledSelect" data-translate="_popupOpacity">Popup Transparency</label></br>
+          <input type="range" class="form-range" min="0" max="10" name="opacity" id="opacity">
         </div>
         <div class="form-group">
-          <label for="disabledSelect" data-translate="_popupLocation">Static Popup Location<div class='badge badge-primary text-wrap'>For Facebook New UI (with interact function)</div></label>
-          <select class="custom-select my-1 mr-sm-2" name="facebookLocation" id="facebookLocation">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
+          <label for="disabledSelect" data-translate="_popupLocation">Static Popup Location<div class='badge badge-primary text-wrap'>For Facebook New UI (with interact function)</div></label></br>
+          <input type="range" class="form-range" min="1" max="3" name="facebookLocation" id="facebookLocation">
+        </div>
+        <div class="form-group">
+          <label for="disabledSelect" data-translate="_sizew">Popup Size(Width)</label></br>
+            <input type="range" class="form-range" min="30" max="100" name="sizew" id="sizew">
+        </div>
+        <div class="form-group">
+          <label for="disabledSelect" data-translate="_sizeh">Popup Size(Height)</label></br>
+          <input type="range" class="form-range" min="20" max="80" name="sizeh" id="sizeh">
         </div>
       </div>
     </div>

@@ -1,0 +1,18 @@
+{
+    "name":"中文(廣東話)",
+    "code":"zh-HK",
+    "_title":"浮動嘅聊天室",
+    "_home":"主頁",
+    "_support":"支援",
+    "_D":"呢個工具可以喺Facebook、Twitch或者YouTube直播上加一個浮動嘅聊天室，就算喺全屏模式都可以用。",
+    "_addBtn":"加個浮動嘅聊天室",
+    "_noInteract":"冇互動功能",
+    "_staticBtn":"加個固定嘅聊天室",
+    "_setting":"設定",
+    "_reset":"重設",
+    "_language":"語言",
+    "_popupOpacity":"聊天室嘅透明度",
+    "_popupLocation":"固定聊天室嘅位置<div class='badge badge-primary text-wrap'>只喺Facebook(互動功能版)用到</div>",
+    "_sizew":"聊天室嘅大小(寬)",
+    "_sizeh":"聊天室嘅大小(高)"
+}

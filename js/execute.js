@@ -3,19 +3,23 @@ var transparency = "0.8";
 var position = "0";
 var settingData = {};
 function createDIV(elmnt) {
+   removeDIV();
    var iDiv = document.createElement('div');
    iDiv.id = "popupChat";
    elmnt.prepend(iDiv);
-   iDiv.style.width = "300px"; iDiv.style.height = "400px";
+   iDiv.style.width = `${settingData['Size']['w']}rem`; iDiv.style.height = `${settingData['Size']['h']}rem`;
    var iDivT = document.createElement('div');
    iDivT.id = "popupChatT"; iDivT.style.width = "100%"; iDivT.style.height = "2rem";
    iDivT.style.backgroundColor = `rgba(0,0,0,${transparency})`; iDivT.style.textAlign = 'right';
-   iDivT.innerHTML = '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><a href="" onclick="removeDIV()"><span class="material-icons">close</span></a>'
+   iDivT.innerHTML = `<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><a href="javascript: void(0)" onclick="document.getElementById('popupChat').remove();"><span class="material-icons">close</span></a>`
    iDiv.append(iDivT);
    dragElement(iDiv);
   return iDiv;
 }
-function removeDIV() { var iDiv = document.getElementById("popupChatD"); elmnt.remove(); }
+function removeDIV() { 
+  try {document.getElementById("popupChatD").remove();} catch (e) {} 
+  try {document.getElementById("popupChat").remove();} catch (e) {} 
+}
 function autoUpdateChat(query) { setTimeout(function() { updateChat(query); autoUpdateChat(query); }, 400) }
 function updateChatBox(query) {
   var popupChat = document.createElement('div');
@@ -37,8 +41,8 @@ function updateChat(query) {
 }
 function dragElement(elmnt) {
    elmnt.style.position= 'absolute';
-   elmnt.style.width = "300px";
-   elmnt.style.height = "400px";
+   elmnt.style.width = `${settingData['Size']['w']}rem`;
+   elmnt.style.height = `${settingData['Size']['h']}rem`;
    elmnt.style.zIndex = '500';
    elmnt.style.overflowAnchor = 'auto';
    elmnt.style.opacity = transparency;
@@ -199,6 +203,7 @@ const reset = () => {
 const onMessage = (message) => {
    transparency = message.transparency; 
    settingData = message.settingData;
+   console.log(settingData);
    switch (message.action) {
      case 'ADDPOPUP':
        if (window.location.href.match('https://www.facebook.com/.*/videos/.*')) {
@@ -222,6 +227,7 @@ const onMessage = (message) => {
      default:
        break;
    }
+   
  }
 
 chrome.runtime.onMessage.addListener(onMessage);
