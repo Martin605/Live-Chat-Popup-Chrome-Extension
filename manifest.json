@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_appName__",
   "description": "__MSG_appDesc__",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "author": "Martin",
   "default_locale":"en",
   "icons": { 
@@ -21,7 +21,7 @@
     {
       "matches": [
         "https://www.facebook.com/*",
-        "https://www.youtube.com/watch*",
+        "https://www.youtube.com/*",
         "https://www.twitch.tv/*"
       ],
       "js": [
