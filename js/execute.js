@@ -1,4 +1,5 @@
 var update = true;
+var popupStatus = "not_running";
 var transparency = "0.8";
 var position = "0";
 var settingData = {};
@@ -299,7 +300,16 @@ const reset = () => {
 const onMessage = (message) => {
   transparency = message.transparency;
   settingData = message.settingData;
-  switch (message.action) {
+  switch (popupStatus) {
+    case "not_running":
+    case "UPDATE":
+      popupStatus = message.action;
+      break;
+    default:
+      removeDIV();
+      break;
+  }
+  switch (popupStatus) {
     case 'ADDPOPUP':
       if (window.location.href.match('https://www.facebook.com/.*/videos/.*')) {
         facebookVideoEvent();
@@ -308,6 +318,7 @@ const onMessage = (message) => {
       } else if (window.location.href.match('https://www.twitch.tv/.*')) {
         twLiveEvent();
       }
+      console.log('ADDPOPUP')
       break;
     case 'FACEBOOKNEW':
       position = message.position;
@@ -322,6 +333,7 @@ const onMessage = (message) => {
     default:
       break;
   }
+  console.log(message.action)
 }
 
 chrome.runtime.onMessage.addListener(onMessage);

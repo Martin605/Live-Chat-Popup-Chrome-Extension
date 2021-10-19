@@ -4,14 +4,19 @@
     <title>Chat Room Popup Tool</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
   </head>
   <body id="body" style="width: 25rem;">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-     <a class="navbar-brand" href="#" data-translate="_title">Chat Room Popup Tool</a>
-   </nav>
+      <a class="navbar-brand" href="#" data-translate="_title">Chat Room Popup Tool</a>
+    </nav>
    <div class="container">
       <div class="jumbotron mt-3 w-auto">
+        <a id="backBtn" class="btn btn-primary material-icons w-100" href="#">arrow_back</a>
         <div class="form-group">
+          <span class="material-icons">
+            language
+            </span>
           <label for="disabledSelect" data-translate="_language">Language</label>
           <select id="langList" class="custom-select my-1 mr-sm-2" name="langList">
             <option value="en-US">English</option>
@@ -20,26 +25,35 @@
           </select>
         </div>
         <div class="form-group">
+          <span class="material-icons">
+            visibility
+            </span>
           <label for="disabledSelect" data-translate="_popupOpacity">Popup Transparency</label></br>
-          <input type="range" class="form-range" min="0" max="10" name="opacity" id="opacity">
+          <input type="range" class="form-range" min="0" max="10" name="opacity" id="opacity"><output class="ml-2" ></output>
         </div>
         <div class="form-group">
+          <span class="material-icons">
+            view_sidebar
+            </span>
           <label for="disabledSelect" data-translate="_popupLocation">Static Popup Location<div class='badge badge-primary text-wrap'>For Facebook New UI (with interact function)</div></label></br>
-          <input type="range" class="form-range" min="1" max="3" name="facebookLocation" id="facebookLocation">
+          <input type="range" class="form-range" min="1" max="3" name="facebookLocation" id="facebookLocation"><output class="ml-2" ></output>
         </div>
         <div class="form-group">
+          <span class="material-icons" style="transform: rotate(90deg);">height</span>
           <label for="disabledSelect" data-translate="_sizew">Popup Size(Width)</label></br>
-            <input type="range" class="form-range" min="30" max="100" name="sizew" id="sizew">
+            <input type="range" class="form-range" min="30" max="100" name="sizew" id="sizew"><output class="ml-2" ></output>
         </div>
         <div class="form-group">
+          <span class="material-icons">height</span>
           <label for="disabledSelect" data-translate="_sizeh">Popup Size(Height)</label></br>
-          <input type="range" class="form-range" min="20" max="80" name="sizeh" id="sizeh">
+          <input type="range" class="form-range" min="20" max="80" name="sizeh" id="sizeh"><output class="ml-2" ></output>
         </div>
       </div>
     </div>
     <script src="./js/jquery-3.5.1.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.js"></script>
+    <script src="./js/settingData.js"></script>
     <script src="./js/setting.js"></script>
     <script src="./js/web.js"></script>
   </body>
