@@ -3,14 +3,13 @@
 <img src="https://martin605.github.io/img/chrome_web_store_branding.png"></a>
 
 ## Features
-Live Chat Popup can let you add a Chat Room Popup on Facebook, Twitch or YouTube live video, even in full screen mode.
+Live Chat Popup can let you add a Chat Room Popup on Twitch or YouTube live video, even in full screen mode.
 
 ## Screenshots
 
 | On YouTube | On YouTube fullscreen |
 | :------------ | :------------ |
 | ![](https://martin605.github.io/Live-Chat-Popup/img/sample1.png) | ![](https://martin605.github.io/Live-Chat-Popup/img/sample2.png) |
-| On Twitch | On Facebook |
-| ![](https://martin605.github.io/Live-Chat-Popup/img/sample3.png) | ![](https://martin605.github.io/Live-Chat-Popup/img/sample4.png) |
-| On Facebook New UI(with interact function) |   |
-| ![](https://martin605.github.io/Live-Chat-Popup/img/sample5.png) |   |
+| On Twitch |  |
+| ![](https://martin605.github.io/Live-Chat-Popup/img/sample3.png) |  |
+
