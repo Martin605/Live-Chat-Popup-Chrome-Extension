@@ -3,11 +3,13 @@ var getSelectedTab = (tab) => {
    tabId = tab.id;
 }
 document.addEventListener('DOMContentLoaded', function () {
-   onLoad();
    chrome.tabs.getSelected(null, getSelectedTab);
    var sendMessage = (messageObj) => chrome.tabs.sendMessage(tabId, messageObj);
+   onLoad();
    function setNext(target) {
-      target.nextElementSibling.value = target.value;
+      try {
+         target.nextElementSibling.value = target.value;
+      } catch {}
    }
    function settingUpdate  (valueName, event) {
       setNext(event.target);
@@ -20,8 +22,10 @@ document.addEventListener('DOMContentLoaded', function () {
       setNext(document.getElementById(valueName));
    }
    document.getElementById('langList').value = localStorage.getItem('lang') || navigator.language || navigator.userLanguage;
-   settingOnLoad('facebookLocation', 'position');
+   // settingOnLoad('facebookLocation', 'position');
    settingOnLoad('opacity', 'transparency');
+   settingOnLoad('opacityType', 'transparency_type');
+   settingOnLoad('backgroundOpacity', 'background_transparency');
    settingOnLoad('sizew', 'sizew');
    settingOnLoad('sizeh', 'sizeh');
    // Language setting
@@ -29,12 +33,20 @@ document.addEventListener('DOMContentLoaded', function () {
       setLang(event.target.value)
    });
    // Location setting
-   document.getElementById('facebookLocation').addEventListener('change', (event) => {
-      settingUpdate('position', event);
+   // document.getElementById('facebookLocation').addEventListener('change', (event) => {
+   //    settingUpdate('position', event);
+   // });
+   // opacity Type setting
+   document.getElementById('opacityType').addEventListener('change', (event) => {
+      settingUpdate('transparency_type', event);
    });
    // opacity setting
    document.getElementById('opacity').addEventListener('change', (event) => {
       settingUpdate('transparency', event);
+   });
+   // background setting
+   document.getElementById('backgroundOpacity').addEventListener('change', (event) => {
+      settingUpdate('background_transparency', event);
    });
    // sizew setting
    document.getElementById('sizew').addEventListener('change', (event) => {

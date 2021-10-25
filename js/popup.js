@@ -7,9 +7,9 @@ var getSelectedTab = (tab) => {
   document.getElementById('add').addEventListener('click', () => sendMessage(
     generatSettingData('ADDPOPUP')
   ));
-  document.getElementById('fbnew').addEventListener('click', () => sendMessage(
-    generatSettingData('FACEBOOKNEW')
-  ));
+  // document.getElementById('fbnew').addEventListener('click', () => sendMessage(
+  //   generatSettingData('FACEBOOKNEW')
+  // ));
   document.getElementById('reset').addEventListener('click', () => sendMessage({
     action: 'RESET'
   }))

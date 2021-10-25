@@ -14,5 +14,12 @@
     "_popupOpacity":"Popup Transparency",
     "_popupLocation":"Static Popup Location<div class='badge badge-primary text-wrap'>For Facebook</div>",
     "_sizew":"Popup Size(Width)",
-    "_sizeh":"Popup Size(Height)"
+    "_sizeh":"Popup Size(Height)",
+    "_transparent":"Transparent",
+    "_nontransparent":"Non-transparent",
+    "_popupBackgroundOpacity":"Popup Background Transparency",
+    "_fulltransparent":"Transparent All",
+    "_backgroundtransparent":"Transparent Background",
+    "_onlymessage":"Show Message only",
+    "_customize":"Customize"
 }

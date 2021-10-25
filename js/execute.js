@@ -2,23 +2,32 @@ var update = true;
 var popupStatus = "not_running";
 var transparency = "0.8";
 var position = "0";
-var settingData = {};
-
+var setting = {};
+// set background
+function setbackground(elmnt) {
+  if (setting.transparency_type == "false") {
+    elmnt.style.backgroundColor = `rgba(0,0,0,${transparency})`;
+  } else {
+    elmnt.style.backgroundColor = `rgba(0,0,0,0)`;
+  }
+}
 // create div in video
 function createDIV(elmnt) {
   removeDIV();
   var iDiv = document.createElement('div');
   iDiv.id = "popupChat";
   elmnt.prepend(iDiv);
-  iDiv.style.width = `${settingData['Size']['w']}rem`;
-  iDiv.style.height = `${settingData['Size']['h']}rem`;
+  iDiv.style.width = `${setting.settingData['Size']['w']}rem`;
+  iDiv.style.height = `${setting.settingData['Size']['h']}rem`;
   var iDivT = document.createElement('div');
   iDivT.id = "popupChatT";
   iDivT.style.width = "100%";
   iDivT.style.height = "2rem";
-  iDivT.style.backgroundColor = `rgba(0,0,0,${transparency})`;
-  iDivT.style.textAlign = 'right';
-  iDivT.innerHTML = `<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><a href="javascript: void(0)" onclick="document.getElementById('popupChat').remove();"><span class="material-icons">close</span></a>`
+  setbackground(iDivT);
+  iDivT.innerHTML = `
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <span class="material-icons" style="text-align:left;">drag_handle</span>
+  <a href="javascript: void(0)" onclick="document.getElementById('popupChat').remove();popupStatus = 'not_running';setting.action = 'not_running';" style="float:right;"><span class="material-icons">close</span></a>`
   iDiv.append(iDivT);
   dragElement(iDiv);
   return iDiv;
@@ -69,17 +78,20 @@ function updateChat(query) {
 // let Chat div draggable
 function dragElement(elmnt) {
   elmnt.style.position = 'absolute';
-  elmnt.style.width = `${settingData['Size']['w']}rem`;
-  elmnt.style.height = `${settingData['Size']['h']}rem`;
+  elmnt.style.width = `${setting.settingData['Size']['w']}rem`;
+  elmnt.style.height = `${setting.settingData['Size']['h']}rem`;
   elmnt.style.zIndex = '500';
   elmnt.style.overflowAnchor = 'auto';
   elmnt.style.opacity = transparency;
+  setbackground(elmnt);
   elmnt.closeDragElement;
   var pos1 = 0,
     pos2 = 0,
     pos3 = 0,
     pos4 = 0;
-  document.getElementById(elmnt.id + "T").onmousedown = dragMouseDown;
+  let title = document.getElementById(elmnt.id + "T");
+  title.onmousedown = dragMouseDown;
+  setbackground(title);
   let chatBox = document.getElementById('popupChat');
   chatBox.style.top = "0px";
   chatBox.style.left = "0px";
@@ -168,17 +180,17 @@ const facebookNewVideoEvent = () => {
       Item.style.top = "0";
     })
   }
-  for (let item = 0; item < settingData["Facebook"]["Static"]["hide"].length; item++) {
-    hide(settingData["Facebook"]["Static"]["hide"][item])
+  for (let item = 0; item < setting.settingData["Facebook"]["Static"]["hide"].length; item++) {
+    hide(setting.settingData["Facebook"]["Static"]["hide"][item])
   }
-  for (let item = 0; item < settingData["Facebook"]["Static"]["removeTop"].length; item++) {
-    removeTop(settingData["Facebook"]["Static"]["removeTop"][item])
+  for (let item = 0; item < setting.settingData["Facebook"]["Static"]["removeTop"].length; item++) {
+    removeTop(setting.settingData["Facebook"]["Static"]["removeTop"][item])
   }
-  for (let item = 0; item < settingData["Facebook"]["Static"]["toFullscreen"].length; item++) {
-    toFullscreen(settingData["Facebook"]["Static"]["toFullscreen"][item])
+  for (let item = 0; item < setting.settingData["Facebook"]["Static"]["toFullscreen"].length; item++) {
+    toFullscreen(setting.settingData["Facebook"]["Static"]["toFullscreen"][item])
   }
-  for (let item = 0; item < settingData["Facebook"]["Static"]["bgnone"].length; item++) {
-    bgnone(settingData["Facebook"]["Static"]["bgnone"][item])
+  for (let item = 0; item < setting.settingData["Facebook"]["Static"]["bgnone"].length; item++) {
+    bgnone(setting.settingData["Facebook"]["Static"]["bgnone"][item])
   }
 
   function positionChange() {
@@ -214,13 +226,13 @@ const facebookNewVideoEvent = () => {
   document.querySelectorAll('.bp9cbjyn.i09qtzwb.jeutjz8y.j83agx80.btwxx1t3.pmk7jnqg.dpja2al7.pnx7fd3z.e4zzj2sf.k4urcfbm.tghn160j').forEach(function (Item) {
     Item.style.width = 'calc( 100% - 22rem )';
   })
-  let FullscreenBtn = settingData["Facebook"]["Static"]["FullscreenBtn"]
+  let FullscreenBtn = setting.settingData["Facebook"]["Static"]["FullscreenBtn"]
   get_last(FullscreenBtn["btn"] + "." + FullscreenBtn["on"]).onclick = function () {
     fullscreen()
   }
 
   function fullscreen() {
-    let FullscreenBtn = settingData["Facebook"]["Static"]["FullscreenBtn"]
+    let FullscreenBtn = setting.settingData["Facebook"]["Static"]["FullscreenBtn"]
     document.querySelector('body').requestFullscreen();
     let a = get_last(FullscreenBtn["btn"] + "." + FullscreenBtn["on"]);
     a.classList.remove(FullscreenBtn["on"]);
@@ -231,7 +243,7 @@ const facebookNewVideoEvent = () => {
   }
 
   function exitfullscreen() {
-    let FullscreenBtn = settingData["Facebook"]["Static"]["FullscreenBtn"]
+    let FullscreenBtn = setting.settingData["Facebook"]["Static"]["FullscreenBtn"]
     document.exitFullscreen();
     let a = get_last(FullscreenBtn["btn"] + "." + FullscreenBtn["off"]);
     a.classList.remove(FullscreenBtn["off"]);
@@ -247,27 +259,27 @@ const facebookNewVideoEvent = () => {
   resetFacebookA('*[data-pagelet="TahoeVideo"]');
 };
 const facebookVideoEvent = () => {
-  if (document.querySelector(settingData["Facebook"]["UI"]["chat"]) !== null) {
+  if (document.querySelector(setting.settingData["Facebook"]["UI"]["chat"]) !== null) {
     // Facebook Old UI(live)
-    let fbui = settingData["Facebook"]["UI"]
+    let fbui = setting.settingData["Facebook"]["UI"]
     var fbDiv = createDIV(document.querySelector(fbui["video"]).parentElement);
     updateChatBox(fbui["chat"]);
     resetFacebookA(fbui["chat"]);
-  } else if (document.querySelector(settingData["Facebook"]["UI_gamming"]["video"]) !== null) {
+  } else if (document.querySelector(setting.settingData["Facebook"]["UI_gamming"]["video"]) !== null) {
     // Facebook Old UI(gaming live)
-    let fbui = settingData["Facebook"]["UI_gamming"]
+    let fbui = setting.settingData["Facebook"]["UI_gamming"]
     var fbDiv = createDIV(document.querySelector(fbui["video"]));
     updateChatBox(fbui["chat"]);
     resetFacebookA(fbui["video"]);
-  } else if (document.querySelector(settingData["Facebook"]["NewUI_gamming"]["chat"]) !== null) {
+  } else if (document.querySelector(setting.settingData["Facebook"]["NewUI_gamming"]["chat"]) !== null) {
     // Facebook New UI(gaming live)
-    let fbui = settingData["Facebook"]["NewUI_gamming"]
+    let fbui = setting.settingData["Facebook"]["NewUI_gamming"]
     var fbDiv = createDIV(get_last(fbui["video"]).parentElement);
     updateChatBox(fbui["chat"]);
     resetFacebookA(fbui["chat"]);
   } else {
     // Facebook New UI(live)
-    let fbui = settingData["Facebook"]["NewUI"]
+    let fbui = setting.settingData["Facebook"]["NewUI"]
     var fbDiv = createDIV(get_last(fbui["video"]).parentElement);
     updateChatBox(fbui["chat"]);
     resetFacebookA(fbui["chat"]);
@@ -281,25 +293,35 @@ function iF(id, url) {
   iF.src = url;
   iF.style.width = "100%";
   iF.style.height = "100%";
-  iF.style.backgroundColor = "rgba(0,0,0,0)";
   iFDiv.appendChild(iF);
+  return iF;
 }
-const ytLiveEvent = () => {
-  createDIV(document.querySelector(settingData["YouTube"]["video"]));
-  iF("popupChatIF", settingData["YouTube"]["chat"].replace("${loadPageVar('v')}", loadPageVar('v')));
+
+const cssReplace = (ifi, css) => {
+  ifi.addEventListener("load", ev => {
+    const new_style_element = document.createElement("style");
+    new_style_element.textContent = css;
+    ev.target.contentDocument.head.appendChild(new_style_element);
+  });
+}
+
+const ytLiveEvent = (css) => {
+  createDIV(document.querySelector(setting.settingData["YouTube"]["video"]));
+  let ifi = iF("popupChatIF", setting.settingData["YouTube"]["chat"].replace("${loadPageVar('v')}", loadPageVar('v')));
+  cssReplace(ifi, css);
   resetA(window.location.href);
 };
-const twLiveEvent = () => {
-  createDIV(document.querySelector(settingData["Twitch"]["video"].split("'").join('"')));
-  iF("popupChatIF", settingData["Twitch"]["chat"].replace("${window.location.pathname}", window.location.pathname));
+const twLiveEvent = (css) => {
+  createDIV(document.querySelector(setting.settingData["Twitch"]["video"].split("'").join('"')));
+  let ifi = iF("popupChatIF", setting.settingData["Twitch"]["chat"].replace("${window.location.pathname}", window.location.pathname));
+  cssReplace(ifi, css);
   resetA(window.location.href);
 }
 const reset = () => {
   location.reload();
 };
-const onMessage = (message) => {
-  transparency = message.transparency;
-  settingData = message.settingData;
+const main = (message) => {
+  setting = message;
   switch (popupStatus) {
     case "not_running":
     case "UPDATE":
@@ -314,17 +336,18 @@ const onMessage = (message) => {
       if (window.location.href.match('https://www.facebook.com/.*/videos/.*')) {
         facebookVideoEvent();
       } else if (window.location.href.match('https://www.youtube.com/watch.*')) {
-        ytLiveEvent();
+        ytLiveEvent(setting.settingData.css.youtube);
       } else if (window.location.href.match('https://www.twitch.tv/.*')) {
-        twLiveEvent();
+        twLiveEvent(setting.settingData.css.twitch);
       }
-      console.log('ADDPOPUP')
       break;
     case 'FACEBOOKNEW':
       position = message.position;
       if (window.location.href.match('https://www.facebook.com/.*/videos/.*')) {
         facebookNewVideoEvent();
       }
+      break;
+    case 'not_running':
       break;
     case 'RESET':
       update = false;
@@ -333,7 +356,11 @@ const onMessage = (message) => {
     default:
       break;
   }
-  console.log(message.action)
+};
+const resize = () => { main(setting); }
+const onMessage = (message) => {
+  transparency = message.transparency;
+  main(message);
 }
-
+window.onresize = resize;
 chrome.runtime.onMessage.addListener(onMessage);
