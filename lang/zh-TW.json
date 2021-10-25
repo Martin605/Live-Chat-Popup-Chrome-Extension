@@ -17,6 +17,7 @@
     "_sizeh":"聊天室大小(高)",
     "_transparent":"透明",
     "_nontransparent":"不透明",
+    "_typeOpacity":"透明模式",
     "_popupBackgroundOpacity":"聊天室背景透明度",
     "_fulltransparent":"全部透明",
     "_backgroundtransparent":"背景透明",

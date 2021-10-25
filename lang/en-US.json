@@ -17,6 +17,7 @@
     "_sizeh":"Popup Size(Height)",
     "_transparent":"Transparent",
     "_nontransparent":"Non-transparent",
+    "_typeOpacity":"Transparency Type",
     "_popupBackgroundOpacity":"Popup Background Transparency",
     "_fulltransparent":"Transparent All",
     "_backgroundtransparent":"Transparent Background",
