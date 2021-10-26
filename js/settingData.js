@@ -18,7 +18,8 @@ function generatSettingData(action) {
         "YouTube":{
           "video":"#movie_player",
           "chat":"https://www.youtube.com/live_chat?is_popout=1&v=${loadPageVar('v')}"
-          }
+          },
+        "css":{"youtube":"","twitch":""}
         }
     };
     var potitionsetting = localStorage.getItem('position') || "3";
@@ -406,7 +407,6 @@ function generatSettingData(action) {
         }
         break;
       default:
-        output['settingData']['css'] = {"youtube":"","twitch":""};
         output.transparency = 1;
         break;
     }
