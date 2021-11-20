@@ -1,3 +1,16 @@
+var setNews = (data) => {
+  let news_id = localStorage.getItem('news') || "";
+  if (news_id !== data[Object.keys(data)[0]]['id'] || localStorage.getItem('closenews') == "no") {
+    let news = data[Object.keys(data)[0]]
+    $('#alert-body').html(news[localStorage.getItem('lang')]);
+    $('#alert').addClass(`alert-${news["type"]}`);
+    $('#alert').show();
+    localStorage.setItem('news', news['id']);
+    localStorage.setItem('closenews', 'no');
+    document.getElementById('close-alert').addEventListener('click', () => localStorage.setItem('closenews', 'yes'))
+  }
+};
+
 var getSelectedTab = (tab) => {
   var tabId = tab.id;
   $(function () {
@@ -14,18 +27,12 @@ var getSelectedTab = (tab) => {
     action: 'RESET'
   }))
   $('#alert').hide();
-  $.getJSON('https://martin605.github.io/Live-Chat-Popup/news.json', function (data) {
-    let news_id = localStorage.getItem('news') || "";
-    if (news_id !== data[Object.keys(data)[0]]['id'] || localStorage.getItem('closenews') == "no") {
-      let news = data[Object.keys(data)[0]]
-      $('#alert-body').html(news[localStorage.getItem('lang')]);
-      $('#alert').addClass(`alert-${news["type"]}`);
-      $('#alert').show();
-      localStorage.setItem('news', news['id']);
-      localStorage.setItem('closenews', 'no');
-      document.getElementById('close-alert').addEventListener('click', () => localStorage.setItem('closenews', 'yes'))
-    }
+  $.getJSON(chrome.extension.getURL(`news.json`), function(data) {
+    setNews(data);
   });
+  // $.getJSON('https://martin605.github.io/Live-Chat-Popup/news.json', function (data) {
+  //   setNews(data);
+  // });
   onLoad();
 }
 

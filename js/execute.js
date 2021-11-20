@@ -27,7 +27,7 @@ function createDIV(elmnt) {
   iDivT.innerHTML = `
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <span class="material-icons" style="text-align:left;">drag_handle</span>
-  <a href="javascript: void(0)" onclick="document.getElementById('popupChat').remove();popupStatus = 'not_running';setting.action = 'not_running';" style="float:right;"><span class="material-icons">close</span></a>`
+  <a href="javascript: void(0)" onclick="document.getElementById('popupChat').remove();" style="float:right;"><span class="material-icons">close</span></a>`
   iDiv.append(iDivT);
   dragElement(iDiv);
   return iDiv;
@@ -357,7 +357,7 @@ const main = (message) => {
       break;
   }
 };
-const resize = () => { main(setting); }
+const resize = () => { if (document.getElementById("popupChat")) {main(setting);} }
 const onMessage = (message) => {
   transparency = message.transparency;
   main(message);
