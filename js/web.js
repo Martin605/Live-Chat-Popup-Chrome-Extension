@@ -9,7 +9,7 @@ function onLoad() {
 function setLang(langCode) {
     localStorage.setItem('lang', langCode);
     $("html").attr('lang', langCode)
-    $.getJSON(chrome.extension.getURL(`lang/${langCode}.json`), function(data) {
+    $.getJSON(chrome.runtime.getURL(`lang/${langCode}.json`), function(data) {
         $("#lang").text(data.name)
         $("title").html(data["_title"]);
         $("[data-translate]").html(function () {

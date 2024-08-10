@@ -1,9 +1,9 @@
 var tabId = 0;
-var getSelectedTab = (tab) => {
+var getSelectedTab = ([tab]) => {
    tabId = tab.id;
 }
 document.addEventListener('DOMContentLoaded', function () {
-   chrome.tabs.getSelected(null, getSelectedTab);
+   chrome.tabs.query({ active: true, lastFocusedWindow: true }, getSelectedTab);
    var sendMessage = (messageObj) => chrome.tabs.sendMessage(tabId, messageObj);
    onLoad();
    function setNext(target) {
@@ -65,4 +65,4 @@ document.addEventListener('DOMContentLoaded', function () {
       });      
    }
 });
-chrome.tabs.getSelected(null, getSelectedTab);
+chrome.tabs.query({ active: true, lastFocusedWindow: true }, getSelectedTab);
