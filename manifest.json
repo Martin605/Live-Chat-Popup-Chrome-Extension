@@ -17,9 +17,6 @@
     "page": "setting.html",
     "open_in_tab": false
   },
-  "permissions": [
-    "storage"
-  ],
   "content_scripts": [
     {
       "matches": [
